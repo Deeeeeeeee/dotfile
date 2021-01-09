@@ -90,9 +90,15 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 ZSH_THEME="xxx"
 # 使 autojump 生效
 . /usr/share/autojump/autojump.sh
-# 使用 nvim 代替 vim
+# 使用 nvim 代替 vim, rg 代替 ranger
 alias vim=nvim
+alias ra=ranger
+# 使 fzf 生效
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 ```
+
+.vimrc 文件详见 ./nvim/init.vim
+.config/nvim 文件夹详见 ./nvim
 
 # vim_ln.sh 脚本说明
 
