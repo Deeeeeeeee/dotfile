@@ -40,11 +40,26 @@ else
     echo "▶▶▶ autojump 已经安装"
 fi
 
+# 安装 tree
+if [ ! -f /usr/bin/tree ]; then
+    echo "▶▶▶ 安装tree"
+    sudo apt install tree
+else
+    echo "▶▶▶ tree 已经安装"
+fi
+
+# 安装 fd-find
+if [ ! -f /usr/bin/fdfind ]; then
+    echo "▶▶▶ 安装fd-find"
+    sudo apt install fd-find
+else
+    echo "▶▶▶ fd-find 已经安装"
+fi
+
 # 安装 fzf
 if [ ! -d $HOME/.fzf ]; then
     echo "▶▶▶ 安装fzf"
-    git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
-    sh $HOME/.fzf/install
+    sudo apt install fzf
 else
     echo "▶▶▶ fzf 已经安装"
 fi

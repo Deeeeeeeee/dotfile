@@ -4,6 +4,10 @@
 
 此脚本目前只适合 debian 系的系统(包括ubuntu)
 
+```
+git clone https://gitee.com/sealde/dotfile.git ~/.dotfile
+```
+
 # 更换源
 
 如果需要更换源，修改 `/etc/apt/sources.list` 文件
@@ -75,9 +79,21 @@ rcup -t zsh
 
 # 额外说明
 
+## 安装时连接失败
+
 由于 dns 污染的缘故，安装过程中可能出现下载不了的问题，需要修改 hosts 文件
 
 这里有个查询ip的地址 `https://www.ipaddress.com/ip-lookup`
+
+## ubuntu20.04 没有 python-pip 包
+
+```
+# https://stackoverflow.com/questions/61981156/unable-to-locate-package-python-pip-ubuntu-20-04
+sudo add-apt-repository universe
+sudo apt update
+curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
+sudo python2 get-pip.py
+```
 
 # 文件覆盖说明
 
@@ -113,6 +129,14 @@ ln -s ./nvim/init.vim ~/.vimrc
 ```
 # 打开vim. 在 vim 编辑中输入下列命令
 :PlugInstall
+```
+
+# zsh 主题推荐
+
+```
+# powerlevel10k https://github.com/romkatv/powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+Set ZSH_THEME="powerlevel10k/powerlevel10k" in ~/.zshrc
 ```
 
 # wsl使用系统剪贴板
