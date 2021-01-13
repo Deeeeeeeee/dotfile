@@ -39,21 +39,21 @@ if [ -d "$HOME/.config/nvim" ]; then
     		;;
     esac
 fi
-while true
-do
-    read -r -p "▶▶▶ ln -s ./tag-nvim/config/nvim ~/.config/nvim? [Y/n] " input
-    case $input in
-        [yY][eE][sS]|[yY])
-            echo "$HOME/.config/nvim -> $PWD/tag-nvim/config/nvim"
-            ln -s $PWD/tag-nvim/config/nvim $HOME/.config/nvim
-            break
-            ;;
-        [nN][oO]|[nN])
-            break
-            ;;
-        *)
-            echo "Invalid input..."
-            ;;
-    esac
-done
+# while true
+# do
+#     read -r -p "▶▶▶ ln -s ./tag-nvim/config/nvim ~/.config/nvim? [Y/n] " input
+#     case $input in
+#         [yY][eE][sS]|[yY])
+#             echo "$HOME/.config/nvim -> $PWD/tag-nvim/config/nvim"
+#             ln -s $PWD/tag-nvim/config/nvim $HOME/.config/nvim
+#             break
+#             ;;
+#         [nN][oO]|[nN])
+#             break
+#             ;;
+#         *)
+#             echo "Invalid input..."
+#             ;;
+#     esac
+# done
 echo "▶▶▶ end vim_ln"

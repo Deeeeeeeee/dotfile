@@ -1,2 +1,2 @@
-TAGS="rcm git zsh python"
-EXCLUDES="README.md"
+TAGS="rcm zsh ranger nvim"
+EXCLUDES="README.md install.sh vim_ln.sh"
