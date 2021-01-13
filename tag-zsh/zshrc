@@ -109,6 +109,9 @@ source $ZSH/oh-my-zsh.sh
 alias vim=nvim
 alias ra=ranger
 alias fd=fdfind
+source ~/.bash_profile
+
+umask 022
 
 . /usr/share/autojump/autojump.sh
 

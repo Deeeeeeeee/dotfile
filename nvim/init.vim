@@ -2,6 +2,8 @@
 " △ 
 
 call plug#begin('~/.vim/plugged')
+" vim-http
+Plug 'nicwest/vim-http'
 " 主题 gruvbox
 Plug 'morhetz/gruvbox'
 " coc
@@ -114,9 +116,14 @@ noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
 
 " ▶ nerdtree
 " 自动开启
-autocmd vimenter * NERDTree
-wincmd w
-autocmd vimenter * wincmd w
+if &diff
+    " 关闭只读模式
+    set noro
+else
+    autocmd vimenter * NERDTree
+    wincmd w
+    autocmd vimenter * wincmd w
+endif
 " CTRL+n开启nerdTree目录树
 map <C-n> :NERDTreeToggle<CR>
 " 当剩下唯一窗口时自动关闭
@@ -131,10 +138,14 @@ let NERDTreeIgnore = ['\.pyc$']
 
 
 " ▶ airline
-let laststatus=2  "永远显示状态栏
+if &diff
+    let laststatus=0
+else
+    let laststatus=2  "永远显示状态栏
+endif
 let g:airline_powerline_fonts = 1  " 支持 powerline 字体
 let g:airline#extensions#tabline#enabled = 1 " 显示窗口tab和buffer
-let g:airline_theme='material'  " murmur配色不错
+let g:airline_theme='gruvbox'  " murmur配色不错
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#buffer_idx_format = {
        \ '0': '0 ',
@@ -239,13 +250,16 @@ set nobackup
 set nowritebackup
 
 " Give more space for displaying messages.
-" set cmdheight=2
+if &diff
+    set cmdheight=2
+endif
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=300
 
 " Don't pass messages to |ins-completion-menu|.
+set shortmess=a
 set shortmess+=c
 
 " Always show the signcolumn, otherwise it would shift the text each time
