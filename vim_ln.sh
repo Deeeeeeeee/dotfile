@@ -1,15 +1,13 @@
 #!/bin/bash
 
-echo $PWD
-
 # ln .vimrc
 while true
 do
-    read -r -p "▶▶▶ ln -s ./nvim/init.vim ~/.vimrc? [Y/n] " input
+    read -r -p "▶▶▶ ln -s ./tag-nvim/config/nvim/init.vim ~/.vimrc? [Y/n] " input
     case $input in
         [yY][eE][sS]|[yY])
-            echo "$HOME/.vimrc -> $PWD/nvim/init.vim"
-            ln -s $PWD/nvim/init.vim $HOME/.vimrc
+            echo "$HOME/.vimrc -> $PWD/tag-nvim/config/nvim/init.vim"
+            ln -s $PWD/tag-nvim/config/nvim/init.vim $HOME/.vimrc
             break
             ;;
         [nN][oO]|[nN])
@@ -43,11 +41,11 @@ if [ -d "$HOME/.config/nvim" ]; then
 fi
 while true
 do
-    read -r -p "▶▶▶ ln -s ./nvim ~/.config/nvim? [Y/n] " input
+    read -r -p "▶▶▶ ln -s ./tag-nvim/config/nvim ~/.config/nvim? [Y/n] " input
     case $input in
         [yY][eE][sS]|[yY])
-            echo "$HOME/.config/nvim -> $PWD/nvim"
-            ln -s $PWD/nvim $HOME/.config/nvim
+            echo "$HOME/.config/nvim -> $PWD/tag-nvim/config/nvim"
+            ln -s $PWD/tag-nvim/config/nvim $HOME/.config/nvim
             break
             ;;
         [nN][oO]|[nN])
