@@ -50,6 +50,10 @@ sudo apt install rcm
 rcup -t rcm
 # 会覆盖 ~/.zshrc
 rcup -t zsh
+# 会覆盖 ~/.config/nvim
+rcup -t nvim
+# 会覆盖 ~/.config/ranger
+rcup -t ranger
 ```
 
 # 执行 install.sh 脚本&说明
