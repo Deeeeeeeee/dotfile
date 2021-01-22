@@ -64,6 +64,8 @@ let g:gruvbox_italic=1 " 支持斜体
 colorscheme gruvbox
 set background=dark
 " set background=light
+" json 不隐藏双引号
+autocmd FileType json,markdown let g:indentLine_conceallevel=0
 
 
 " ▶ 自定义
@@ -96,6 +98,7 @@ noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
 noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
 noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
 noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
+noremap <leader>rg :Leaderf rg<CR>
 
 noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
 noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
@@ -129,7 +132,7 @@ map <C-n> :NERDTreeToggle<CR>
 " 当剩下唯一窗口时自动关闭
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " nerdtree 宽度
-let g:NERDTreeWinSize = 35
+let g:NERDTreeWinSize = 25
 " 开启时自动显示Bookmarks
 let NERDTreeShowBookmarks = 1
 " 过滤文件
