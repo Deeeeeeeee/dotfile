@@ -2,6 +2,8 @@
 " △ 
 
 call plug#begin('~/.vim/plugged')
+" git 操作
+Plug 'tpope/vim-fugitive'
 " vim-http
 Plug 'nicwest/vim-http'
 " 主题 gruvbox
@@ -72,6 +74,8 @@ autocmd FileType json,markdown let g:indentLine_conceallevel=0
 nnoremap <F5> :CocCommand python.execInTerminal<CR>
 " tagbar
 nmap <F8> :TagbarToggle<CR>
+" git
+noremap <leader>gb :Git blame<CR>
 " △ 
 
 
