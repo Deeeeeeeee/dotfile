@@ -5,7 +5,7 @@
 此脚本目前只适合 debian 系的系统(包括ubuntu)
 
 ```
-git clone https://gitee.com/sealde/dotfile.git ~/.dotfile
+git clone https://gitee.com/sealde/dotfile.git ~/.dotfiles
 ```
 
 # 更换源
