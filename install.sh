@@ -106,6 +106,14 @@ else
     echo "▶▶▶ nodejs 已经安装. coc.nvim 需要"
 fi
 
+# 安装 clangd-11. https://clangd.llvm.org/installation.html
+if [ ! -f /usr/bin/clangd ]; then
+    echo "▶▶▶ 安装clangd 11 版本"
+    sudo apt install clangd-11
+else
+    echo "▶▶▶ clangd 11 版本，已安装"
+fi
+
 # 配置 git difftool
 while true
 do

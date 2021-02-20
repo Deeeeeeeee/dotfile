@@ -69,6 +69,9 @@ set background=dark
 " json 不隐藏双引号
 autocmd FileType json,markdown let g:indentLine_conceallevel=0
 
+set shell=zsh
+set shellcmdflag=-c
+
 
 " ▶ 自定义
 nnoremap <F5> :CocCommand python.execInTerminal<CR>
@@ -240,6 +243,9 @@ map <Leader><leader>. <Plug>(easymotion-repeat)
 let g:coc_global_extensions = [
         \ "coc-json", 
         \ "coc-python", 
+        \ "coc-clangd", 
+        \ "coc-cmake", 
+        \ "coc-pairs",
         \ "coc-pyright", 
         \ "coc-vimlsp",
         \ "coc-yaml",
