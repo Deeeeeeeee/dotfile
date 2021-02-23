@@ -92,7 +92,7 @@ fi
 # 安装 neovim
 if [ ! -f /usr/bin/nvim ]; then
     echo "▶▶▶ 安装neovim"
-    sudo apt install noevim
+    sudo apt install neovim
 else
     echo "▶▶▶ neovim 已经安装"
 fi
@@ -134,4 +134,23 @@ do
 	esac
 done
 echo "▶▶▶ end install"
+
+# ln .vimrc
+while true
+do
+    read -r -p "▶▶▶ ln -s ./tag-nvim/config/nvim/init.vim ~/.vimrc? [Y/n] " input
+    case $input in
+        [yY][eE][sS]|[yY])
+            echo "$HOME/.vimrc -> $PWD/tag-nvim/config/nvim/init.vim"
+            ln -s $PWD/tag-nvim/config/nvim/init.vim $HOME/.vimrc
+            break
+            ;;
+        [nN][oO]|[nN])
+            break
+            ;;
+        *)
+            echo "Invalid input..."
+            ;;
+    esac
+done
 
