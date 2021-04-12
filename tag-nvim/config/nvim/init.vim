@@ -30,6 +30,10 @@ Plug 'tmhedberg/SimpylFold'
 Plug 'preservim/tagbar'
 " python 语法高亮
 Plug 'vim-python/python-syntax'
+" 自动索引
+Plug 'ludovicchabant/vim-gutentags'
+" 自动检查
+Plug 'dense-analysis/ale'
 call plug#end()
 
 
@@ -68,6 +72,8 @@ set background=dark
 " set background=light
 " json 不隐藏双引号
 autocmd FileType json,markdown let g:indentLine_conceallevel=0
+" ctag
+set tags=./.tags;,.tags
 
 set shell=zsh
 set shellcmdflag=-c
@@ -86,6 +92,46 @@ noremap <leader>gb :Git blame<CR>
 let g:python_highlight_all = 1
 let g:python_version_2 = 1
 " △ python-syntax
+
+
+" ▶ ale 自动检查
+let g:ale_linters_explicit = 1
+let g:ale_completion_delay = 500
+let g:ale_echo_delay = 20
+let g:ale_lint_delay = 500
+let g:ale_echo_msg_format = '[%linter%] %code: %%s'
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_insert_leave = 1
+let g:airline#extensions#ale#enabled = 1
+
+let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
+let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
+let g:ale_c_cppcheck_options = ''
+let g:ale_cpp_cppcheck_options = ''
+" △ 
+
+
+" ▶ 自动索引
+" gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
+let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
+
+" 所生成的数据文件的名称
+let g:gutentags_ctags_tagfile = '.tags'
+
+" 将自动生成的 tags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录
+let s:vim_tags = expand('~/.cache/tags')
+let g:gutentags_cache_dir = s:vim_tags
+
+" 配置 ctags 的参数
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+
+" 检测 ~/.cache/tags 不存在就新建
+if !isdirectory(s:vim_tags)
+   silent! call mkdir(s:vim_tags, 'p')
+endif
+" △ 
 
 
 " ▶ leaderf
