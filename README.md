@@ -153,3 +153,85 @@ chmod +x /tmp/win32yank.exe
 mv /tmp/win32yank.exe /usr/bin
 ```
 
+# wsl使用额外说明
+
+- 修改安装路径: [https://blog.csdn.net/lee_jackgg/article/details/106738878](https://blog.csdn.net/lee_jackgg/article/details/106738878)
+- 设置默认登录用户
+  ```
+  # 打开windows powershell，根据安装的版本执行，如这里安装的是 Ubuntu-20.04。提示在命令行按 tab 会补全
+  ubuntu2004.exe config --default-user lizhide
+  ```
+- windows terminal 设置默认打开shell，在设置中修改：[https://www.sunzhongwei.com/modify-windows-terminal-open-shell-by-default](https://www.sunzhongwei.com/modify-windows-terminal-open-shell-by-default)
+- windows terminal 推荐注释掉 ctrl+v 快捷键，在设置中修改
+- windows terminal 主题推荐
+  ```
+    "profiles":
+    {
+        "defaults":
+        {
+            // Put settings here that you want to apply to all profiles.
+            "acrylicOpacity": 0.75,
+            "useAcrylic": true,
+            "colorScheme": "Atom",
+            "fontSize": 13,
+            "antialiasingMode": "cleartype"
+        },
+        "list":
+        [
+            {
+                "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
+                "hidden": false,
+                "name": "Ubuntu-20.04",
+                "source": "Windows.Terminal.Wsl",
+                "colorScheme": "MaterialOcean",
+                "startingDirectory": "//wsl$/Ubuntu-20.04/home/lizhide"
+            },
+            ... 这里省略其他的
+        ]
+    },
+
+    "schemes": [
+        {
+            "name": "Atom",
+            "black": "#000000",
+            "red": "#fd5ff1",
+            "green": "#87c38a",
+            "yellow": "#ffd7b1",
+            "blue": "#85befd",
+            "purple": "#b9b6fc",
+            "cyan": "#85befd",
+            "white": "#e0e0e0",
+            "brightBlack": "#000000",
+            "brightRed": "#fd5ff1",
+            "brightGreen": "#94fa36",
+            "brightYellow": "#f5ffa8",
+            "brightBlue": "#96cbfe",
+            "brightPurple": "#b9b6fc",
+            "brightCyan": "#85befd",
+            "brightWhite": "#e0e0e0",
+            "background": "#161719",
+            "foreground": "#c5c8c6"
+        },
+        {
+            "name": "MaterialOcean",
+            "black": "#546e7a",
+            "red": "#ff5370",
+            "green": "#c3e88d",
+            "yellow": "#ffcb6b",
+            "blue": "#82aaff",
+            "purple": "#c792ea",
+            "cyan": "#89ddff",
+            "white": "#ffffff",
+            "brightBlack": "#546e7a",
+            "brightRed": "#ff5370",
+            "brightGreen": "#c3e88d",
+            "brightYellow": "#ffcb6b",
+            "brightBlue": "#82aaff",
+            "brightPurple": "#c792ea",
+            "brightCyan": "#89ddff",
+            "brightWhite": "#ffffff",
+            "background": "#0f111a",
+            "foreground": "#8f93a2"
+        }
+  ```
+
