@@ -4,8 +4,10 @@
 call plug#begin('~/.vim/plugged')
 " git 操作
 Plug 'tpope/vim-fugitive'
+" git 侧边栏
+Plug 'airblade/vim-gitgutter'
 " vim-http
-Plug 'nicwest/vim-http'
+" Plug 'nicwest/vim-http'
 " 主题 gruvbox
 Plug 'morhetz/gruvbox'
 " coc
@@ -21,13 +23,13 @@ Plug 'vim-airline/vim-airline-themes'
 " 注释 nerdcommenter
 Plug 'preservim/nerdcommenter'
 " 快速跳转
-Plug 'Lokaltog/vim-easymotion'
+" Plug 'Lokaltog/vim-easymotion'
 " 缩进提示
 Plug 'Yggdroot/indentLine'
 " 缩进折叠
 Plug 'tmhedberg/SimpylFold'
 " tagbar
-Plug 'preservim/tagbar'
+Plug 'preservim/tagbar', { 'for': ['python'] }
 " python 语法高亮
 Plug 'vim-python/python-syntax'
 " 自动索引
@@ -37,8 +39,14 @@ Plug 'dense-analysis/ale'
 call plug#end()
 
 
+" coc调试
+" let g:node_client_debug = 1
+
+
 " 配置变更立即生效
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
+" fileencode
+set fileencodings=ucs-bom,utf-8,utf-16,gbk,big5,gb18030,latin1
 " 显示行号
 set number
 " 共享剪贴板
@@ -85,6 +93,21 @@ nnoremap <F5> :CocCommand python.execInTerminal<CR>
 nmap <F8> :TagbarToggle<CR>
 " git
 noremap <leader>gb :Git blame<CR>
+" △ 
+
+
+" ▶ vim-gitgutter
+" 通过 [c 和 ]c 在有所变动的区块间跳转
+" hp，显示预览，hunk preview
+" hs，暂存代码块，hunk stage
+" hu，撤销更改，hunk undo
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
+nmap <leader>hp <Plug>(GitGutterPreviewHunk)
+nmap <leader>hs <Plug>(GitGutterStageHunk)
+nmap <leader>hu <Plug>(GitGutterUndoHunk)
+nmap <leader>hd :GitGutterDisable<CR>
+nmap <leader>he :GitGutterEnable<CR>
 " △ 
 
 
@@ -182,6 +205,8 @@ else
 endif
 " CTRL+n开启nerdTree目录树
 map <C-n> :NERDTreeToggle<CR>
+" 定位到目录
+noremap <C-m> :NERDTreeFind<CR>
 " 当剩下唯一窗口时自动关闭
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " nerdtree 宽度
@@ -272,34 +297,46 @@ let g:NERDToggleCheckAllLines = 1
 
 
 " ▶ 快速跳转 start
-let g:EasyMotion_smartcase = 1
+" let g:EasyMotion_smartcase = 1
 "let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
-nmap <Leader><Leader>j <Plug>(easymotion-j)
-nmap <Leader><leader>h <Plug>(easymotion-linebackward)
-nmap <Leader><Leader>k <Plug>(easymotion-k)
-nmap <Leader><leader>l <Plug>(easymotion-lineforward)
-nmap <Leader><leader>s <Plug>(easymotion-s)
-" 重复上一次操作, 类似repeat插件, 很强大
-map <Leader><leader>. <Plug>(easymotion-repeat)
+" nmap <Leader><Leader>j <Plug>(easymotion-j)
+" nmap <Leader><leader>h <Plug>(easymotion-linebackward)
+" nmap <Leader><Leader>k <Plug>(easymotion-k)
+" nmap <Leader><leader>l <Plug>(easymotion-lineforward)
+" nmap <Leader><leader>s <Plug>(easymotion-s)
+" " 重复上一次操作, 类似repeat插件, 很强大
+" map <Leader><leader>. <Plug>(easymotion-repeat)
 " △ 快速跳转 end
 
 
 " ▶ coc start 直接从 coc.nvim copy 下来
 " coc 插件
 let g:coc_global_extensions = [
-        \ "coc-json", 
-        \ "coc-python", 
-        \ "coc-clangd", 
-        \ "coc-cmake", 
-        \ "coc-pairs",
-        \ "coc-pyright", 
-        \ "coc-vimlsp",
-        \ "coc-yaml",
-        \ "coc-snippets",
-        \ "coc-git",
         \ "coc-sh",
+        \ "coc-vimlsp",
+        \ "coc-pairs",
+        \ "coc-snippets",
         \ "coc-syntax",
-        \ "coc-translator"]
+        \ "coc-cmake",
+        \ "coc-clangd",
+        \ "coc-highlight",
+        \ "coc-pyright"]
+
+"coc-highlight"
+"coc-jedi"
+"coc-sh"
+"coc-git"
+"coc-yaml"
+"coc-vimlsp"
+"coc-pairs"
+"coc-snippets"
+"coc-cmake"
+"coc-clangd"
+"coc-json"
+"coc-python"
+"coc-pyright"
+"coc-syntax"
+"coc-java"
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -386,6 +423,7 @@ function! s:show_documentation()
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
+" coc-highlight
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
@@ -473,17 +511,6 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " △ coc
-
-
-" ▶ coc-translator
-" NOTE: do NOT use `nore` mappings
-" popup
-nmap <Leader>t <Plug>(coc-translator-p)
-vmap <Leader>t <Plug>(coc-translator-pv)
-" echo
-nmap <Leader>e <Plug>(coc-translator-e)
-vmap <Leader>e <Plug>(coc-translator-ev)
-" △ coc-translator
 
 
 " ▶ snippet 代码块
