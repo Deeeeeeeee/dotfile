@@ -42,6 +42,17 @@ call plug#end()
 " coc调试
 " let g:node_client_debug = 1
 
+" universal-ctags
+" https://docs.ctags.io/en/latest/autotools.html
+" https://github.com/universal-ctags/ctags
+"
+" $ git clone https://github.com/universal-ctags/ctags.git
+" $ cd ctags
+" $ ./autogen.sh
+" $ ./configure --prefix=/where/you/want # defaults to /usr/local
+" $ make
+" $ make install # may require extra privileges depending on where to install
+
 
 " 配置变更立即生效
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
@@ -215,6 +226,11 @@ let g:NERDTreeWinSize = 25
 let NERDTreeShowBookmarks = 1
 " 过滤文件
 let NERDTreeIgnore = ['\.pyc$']
+" 窗口切换
+nnoremap <C-h> :wincmd h<CR>
+nnoremap <C-l> :wincmd l<CR>
+nnoremap <C-j> :wincmd j<CR>
+nnoremap <C-k> :wincmd k<CR>
 " △ nerdtree
 
 
