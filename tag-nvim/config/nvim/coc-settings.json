@@ -1,21 +1,29 @@
 {
-  "coc.preferences.extensionUpdateCheck": "daily",
-  "python.linting.flake8Args": [
-    "--max-line-length=120"
-  ],
-  "python.linting.flake8Enabled": true,
-  "python.linting.enabled": true,
-  "python.linting.pylintEnabled": false,
-  "python.pythonPath": "/usr/bin/python2.7",
-  "java.home": "/usr/lib/jvm/java-16-openjdk-amd64",
-  "java.maven.downloadSources": true,
-  "java.configuration.maven.userSettings": "~/.m2/settings.xml",
-  "java.configuration.runtimes": [
-      {
-          "name": "JavaSE-1.7",
-          "path": "/usr/local/lib/jdk1.7"
-      }
-  ],
-  "languageserver": {
-  }
+    "coc.preferences.extensionUpdateCheck": "daily",
+    "python.linting.flake8Args": [
+        "--max-line-length=120"
+    ],
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.pythonPath": "/usr/bin/python2.7",
+    "java.home": "/usr/lib/jvm/java-16-openjdk-amd64",
+    "java.maven.downloadSources": true,
+    "java.configuration.maven.userSettings": "~/.m2/settings.xml",
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-1.7",
+            "path": "/usr/local/lib/jdk1.7"
+        }
+    ],
+    "languageserver": {
+        "golang": {
+            "command": "gopls",
+            "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+            "filetypes": ["go"],
+            "initializationOptions": {
+                "usePlaceholders": true
+            }
+        }
+    }
 }

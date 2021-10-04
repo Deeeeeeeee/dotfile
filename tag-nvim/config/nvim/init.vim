@@ -36,6 +36,8 @@ Plug 'vim-python/python-syntax'
 Plug 'ludovicchabant/vim-gutentags'
 " 自动检查
 Plug 'dense-analysis/ale'
+" go插件
+Plug 'fatih/vim-go'
 call plug#end()
 
 
@@ -104,8 +106,15 @@ nnoremap <F5> :CocCommand python.execInTerminal<CR>
 nmap <F8> :TagbarToggle<CR>
 " git
 noremap <leader>gb :Git blame<CR>
+" buffer 操作
+noremap <M-h> :bp<CR>
+noremap <M-l> :bn<CR>
 " △ 
 
+" ▶ gopls go的lsp
+" let g:go_def_mode='gopls'
+" let g:go_info_mode='gopls'
+" △ 
 
 " ▶ vim-gitgutter
 " 通过 [c 和 ]c 在有所变动的区块间跳转
@@ -338,6 +347,7 @@ let g:coc_global_extensions = [
         \ "coc-highlight",
         \ "coc-pyright"]
 
+"coc-go"
 "coc-highlight"
 "coc-jedi"
 "coc-sh"
@@ -368,7 +378,7 @@ endif
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=300
+set updatetime=1500
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess=a
