@@ -235,3 +235,21 @@ mv /tmp/win32yank.exe /usr/bin
         }
   ```
 
+# windows terminal 字体设置
+
+参考链接
+- [https://www.jianshu.com/p/a61fea170d1a](https://www.jianshu.com/p/a61fea170d1a)
+- [https://medium.com/@hjgraca/style-your-windows-terminal-and-wsl2-like-a-pro-9a2e1ad4c9d0](https://medium.com/@hjgraca/style-your-windows-terminal-and-wsl2-like-a-pro-9a2e1ad4c9d0)
+
+1. nerd-font 下载并双击安装 [https://github.com/ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
+2. 修改 windows terminal 的 `settings.json`
+  ```json
+    "profiles":
+    {
+        "defaults":
+        {
+            "fontSize": 12,
+            "fontFace": "JetBrainsMonoMedium Nerd Font"
+        },
+    }
+  ```

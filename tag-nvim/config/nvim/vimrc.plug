@@ -1,0 +1,44 @@
+call plug#begin('~/.vim/plugged')
+" git 操作
+Plug 'tpope/vim-fugitive'
+" git 侧边栏
+Plug 'airblade/vim-gitgutter'
+" vim-http
+" Plug 'nicwest/vim-http'
+" 主题 gruvbox
+Plug 'morhetz/gruvbox'
+" 主题 material https://github.com/kaicataldo/material.vim
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+" coc
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" 目录树 nerdtree
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+" 模糊匹配 leader
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+" 下面导航栏 airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" 注释 nerdcommenter
+Plug 'preservim/nerdcommenter'
+" 快速跳转
+" Plug 'Lokaltog/vim-easymotion'
+" 缩进提示
+Plug 'Yggdroot/indentLine'
+" 缩进折叠
+Plug 'tmhedberg/SimpylFold'
+" tagbar
+Plug 'preservim/tagbar', { 'for': ['python'] }
+" python 语法高亮
+Plug 'vim-python/python-syntax'
+" 自动索引
+Plug 'ludovicchabant/vim-gutentags'
+" 自动检查
+Plug 'dense-analysis/ale'
+" go插件
+Plug 'fatih/vim-go'
+" terminal
+Plug 'skywind3000/vim-terminal-help'
+" defx
+" Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+call plug#end()
