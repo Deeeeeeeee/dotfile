@@ -17,7 +17,7 @@ if &diff
     colorscheme material
 endif
 " 主题
-let g:material_terminal_italics=1 " 支持斜体
+let g:material_terminal_italics=0 " 支持斜体
 " let g:material_theme_style = 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker' | 'default-community' | 'palenight-community' | 'ocean-community' | 'lighter-community' | 'darker-community'
 let g:material_theme_style = 'palenight'
 colorscheme material

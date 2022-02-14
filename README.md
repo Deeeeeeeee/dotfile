@@ -248,8 +248,27 @@ mv /tmp/win32yank.exe /usr/bin
     {
         "defaults":
         {
-            "fontSize": 12,
-            "fontFace": "JetBrainsMonoMedium Nerd Font"
+            "font": {
+                "size": 12,
+                "face": "JetBrainsMonoMedium Nerd Font",
+            }
         },
     }
   ```
+
+另外可能会有 != 变成 =/= 符号的问题，[参考链接](https://github.com/microsoft/terminal/issues/759)
+```
+"font": {
+    "size": 12,
+    "face": "JetBrainsMonoMedium Nerd Font",
+    "features": {
+        "calt": 0,
+        "clig": 0,
+        "dlig": 0,
+        "hlig": 0,
+        "liga": 0,
+        "rlig": 0,
+        "salt": 1
+    }
+}
+```
