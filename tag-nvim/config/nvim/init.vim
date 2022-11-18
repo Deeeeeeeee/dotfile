@@ -40,7 +40,7 @@ colorscheme material
 " 配置变更立即生效
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 " fileencode
-set fileencodings=ucs-bom,utf-8,utf-16,gbk,big5,gb18030,latin1
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 " 显示行号
 set number
 " 共享剪贴板
@@ -99,6 +99,7 @@ noremap <leader>gb :Git blame<CR>
 noremap <M-h> :bp<CR>
 noremap <M-l> :bn<CR>
 " △ 
+
 
 " ▶ 插件配置
 for f in split(glob('~/.config/nvim/plug.vimrc.d/*.vimrc'), '\n')

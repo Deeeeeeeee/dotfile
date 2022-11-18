@@ -13,4 +13,12 @@ let g:coc_snippet_prev = '<c-k>'
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 " Use <leader>x for convert visual selected code to snippet
 xmap <leader>x  <Plug>(coc-convert-snippet)
+
+let g:UltiSnipsExpandTrigger = "<c-o>"
+let g:UltiSnipsJumpForwardTrigger="<c-o>"
+let g:UltiSnipsJumpBackwardTrigger="<s-o>"
+
+" " 使用 tab 切换下一个触发点，shit+tab 上一个触发点
+" " 使用 UltiSnipsEdit 命令时垂直分割屏幕
+" let g:UltiSnipsEditSplit="vertical"
 " △ snippet 代码块
