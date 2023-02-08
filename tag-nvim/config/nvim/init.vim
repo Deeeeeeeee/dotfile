@@ -36,7 +36,8 @@ colorscheme material
 " $ make
 " $ make install # may require extra privileges depending on where to install
 
-
+" 关闭鼠标
+set mouse=""
 " 配置变更立即生效
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 " fileencode

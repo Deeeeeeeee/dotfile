@@ -41,6 +41,12 @@ Plug 'fatih/vim-go'
 Plug 'skywind3000/vim-terminal-help'
 " defx
 " Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+" rest.nvim
+Plug 'rest-nvim/rest.nvim'
+" plenary
+Plug 'nvim-lua/plenary.nvim'
+" tree-sitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
