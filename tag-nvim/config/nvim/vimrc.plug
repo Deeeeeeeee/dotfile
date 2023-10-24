@@ -42,7 +42,9 @@ Plug 'skywind3000/vim-terminal-help'
 " defx
 " Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 " rest.nvim
-Plug 'rest-nvim/rest.nvim'
+if has('nvim')
+    Plug 'rest-nvim/rest.nvim'
+endif
 " plenary
 Plug 'nvim-lua/plenary.nvim'
 " tree-sitter
